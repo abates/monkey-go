@@ -221,7 +221,9 @@ func (p *Parser) parseLetStatement() ast.Statement {
 		return nil
 	}
 
-	for !p.curTokenIs(token.SEMICOLON) {
+	p.nextToken()
+
+	if p.peekTokenIs(token.SEMICOLON) {
 		p.nextToken()
 	}
 
